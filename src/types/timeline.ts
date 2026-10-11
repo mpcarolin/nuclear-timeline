@@ -4,3 +4,5 @@ export type TTimelineEvent = {
     title: string;
     description: string;
 }
+
+export type TTimelineEventElement = HTMLDivElement

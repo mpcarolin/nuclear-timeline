@@ -1,8 +1,8 @@
-import type { TTimelineEvent } from '@/types/timeline';
+import type { TTimelineEvent, TTimelineEventElement } from '@/types/timeline';
 
 import { useMemo, useRef, useState } from 'react';
 
-export type TListItemObserver = (node: HTMLDivElement | null, event: TTimelineEvent) => void
+export type TListItemObserver = (node: TTimelineEventElement | null, event: TTimelineEvent) => void
 export type TActiveListItemResult = {
     /**
      * Starts observing a given list item for visibility
@@ -27,15 +27,16 @@ export const useActiveListItem = ({
 }: { options?: IntersectionObserverInit } = {}
 ): TActiveListItemResult => {
     const [active, setActive] = useState<string | null>(null);
-    const listEvents = useRef(new Map<HTMLDivElement, TTimelineEvent>());
+    const listEvents = useRef(new Map<TTimelineEventElement, TTimelineEvent>());
     const visibleListEvents = useRef(new Set<TTimelineEvent>());
 
     const observer = useMemo(() => {
         return new IntersectionObserver(
             (entries) => {
                 for (const entry of entries) {
-                    const event = listEvents.current.get(entry.target as HTMLDivElement);
+                    const event = listEvents.current.get(entry.target as TTimelineEventElement);
                     if (!event) {
+                        console.warn("Encountered intersection entry for element not in the tracked list.");
                         continue
                     }
                     if (entry.isIntersecting) {
@@ -52,7 +53,7 @@ export const useActiveListItem = ({
         )
     }, [listEvents]);
 
-    const observe = (node: HTMLDivElement | null, event: TTimelineEvent) => {
+    const observe = (node: TTimelineEventElement | null, event: TTimelineEvent) => {
         if (node) {
             listEvents.current.set(node, event);
             observer.observe(node);

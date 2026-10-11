@@ -1,12 +1,12 @@
 import type { Ref } from 'react'
-import type { TTimelineEvent } from "@/types/timeline";
+import type { TTimelineEvent, TTimelineEventElement } from "@/types/timeline";
 
 import styles from "./TimelineEvent.module.css"
 
 export type TTimelineProps = {
     active?: boolean;
     event: TTimelineEvent;
-    ref: Ref<HTMLDivElement>
+    ref: Ref<TTimelineEventElement>
 }
 
 export const TimelineEvent = ({ event, active, ref, }: TTimelineProps) => {
