@@ -5,4 +5,8 @@
 
 .list {
     overflow-y: auto;
+    scrollbar-color: var(--color-text-subdued) transparent;
+    padding: 0px;
+    margin: 0px;
 }
+

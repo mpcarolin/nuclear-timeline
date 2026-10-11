@@ -1,0 +1,35 @@
+.event {
+    --dot-size: 12px;
+    position: relative;
+    list-style: none;
+    padding-bottom: 80px;
+
+    .eventText {
+        margin-left: 30px;
+    }
+}
+
+/* The line between event dots. Drawn from a dot downward, so we don't need to target the last event */
+.event:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 30px;
+    bottom: -15px;
+    width: 2px;
+    background-color: var(--color-text-subdued);
+}
+
+/* timeline dot for an event */
+.event::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 5px;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: 50%;
+    background: var(--color-text-subdued);
+    border: 3px solid var(--color-text-subdued);
+}
+
