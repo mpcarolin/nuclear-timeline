@@ -1,4 +1,4 @@
-import type { TTimelineEvent } from '../../types/timeline';
+import type { TTimelineEvent } from '@/types/timeline';
 
 import styles from './Timeline.module.css'
 import { TimelineEvent } from './TimelineEvent/TimelineEvent';

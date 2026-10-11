@@ -1,5 +1,5 @@
 import styles from "./TimelineEvent.module.css"
-import type { TTimelineEvent } from "../../../types/timeline";
+import type { TTimelineEvent } from "@/types/timeline";
 
 
 export const TimelineEvent = ({ event }: { event: TTimelineEvent }) => {
