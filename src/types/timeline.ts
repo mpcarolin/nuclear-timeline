@@ -1,5 +1,6 @@
 export type TTimelineEvent = {
-    year: number;
+    id: string;
+    date: number;
     title: string;
     description: string;
 }

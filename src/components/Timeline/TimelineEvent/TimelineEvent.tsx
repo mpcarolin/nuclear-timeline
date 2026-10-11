@@ -1,13 +1,20 @@
-import styles from "./TimelineEvent.module.css"
+import type { Ref } from 'react'
 import type { TTimelineEvent } from "@/types/timeline";
 
+import styles from "./TimelineEvent.module.css"
 
-export const TimelineEvent = ({ event }: { event: TTimelineEvent }) => {
+export type TTimelineProps = {
+    active?: boolean;
+    event: TTimelineEvent;
+    ref: Ref<HTMLDivElement>
+}
+
+export const TimelineEvent = ({ event, active, ref, }: TTimelineProps) => {
     return (
         <li className={styles.event}>
-            <div className={styles.eventText}>
+            <div ref={ref} className={`${styles.eventText} ${active ? styles.activeEvent : ''}`}>
                 <h3 className={styles.eventTitle}>
-                    {event.year}: {event.title}
+                    {event.date}: {event.title}
                 </h3>
                 <p className={styles.eventDescription}>
                     {event.description}
