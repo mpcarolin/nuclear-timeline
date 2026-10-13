@@ -19,7 +19,7 @@ export type TCountryCode = string;
 export type TNuclearTests = {
     entity: string;
     code: TCountryCode;
-    years: Record<number, number>
+    testsByYear: Record<number, number>
 };
 
 export type TNuclearTestMap = Record<TCountryCode, TNuclearTests>

@@ -1,4 +1,4 @@
-import type { TNuclearTestMap, TTestRow } from "@/types/tests"
+import type { TCountryCode, TNuclearTestMap, TTestRow } from "@/types/tests"
 import nuclearTestsSource from "@sources/tests/nuclear-weapons-tests.json"
 
 const toNuclearTests = (source: TTestRow[]) => {
@@ -8,8 +8,8 @@ const toNuclearTests = (source: TTestRow[]) => {
             [next.code]: {
                 code: next.code,
                 entity: next.entity,
-                years: {
-                    ...acc[next.code]?.years,
+                testsByYear: {
+                    ...acc[next.code]?.testsByYear,
                     [next.year]: next.testCount,
                 }
             }
@@ -21,7 +21,7 @@ const toNuclearTests = (source: TTestRow[]) => {
 export const getTotalTestsByYear = (map: TNuclearTestMap) => {
     return Object.values(map).reduce<Record<number, number>>(
         (acc, next) => {
-            for (const [year, count] of Object.entries(next.years)) {
+            for (const [year, count] of Object.entries(next.testsByYear)) {
                 const yearNum = parseInt(year)
                 if (acc[yearNum] === undefined) {
                     acc[yearNum] = 0
@@ -35,5 +35,12 @@ export const getTotalTestsByYear = (map: TNuclearTestMap) => {
 }
 
 export const nuclearTests = toNuclearTests(nuclearTestsSource);
-
 export const totalTestsByYear = getTotalTestsByYear(nuclearTests);
+export const countryCodes = Object.keys(nuclearTests);
+export const countries = countryCodes.map(code => nuclearTests[code].entity)
+
+export const getTestCount = (map: TNuclearTestMap, country: TCountryCode, year: number): number => {
+    const tests = map[country];
+    return tests.testsByYear[year];
+}
+
