@@ -1,15 +1,15 @@
 import styles from './Timeline.module.css'
 import { events } from '@/data/events'
 import { TimelineEvent } from './TimelineEvent/TimelineEvent';
-import { useActiveListItem } from '@/hooks/timeline/useActiveListItem';
+import { type TListItemObserver } from '@/hooks/timeline/useActiveListItem';
 
 export type TTimelineProps = {
     className?: string;
+    active: string | null;
+    observe: TListItemObserver;
 }
 
-export const Timeline = ({ className }: TTimelineProps) => {
-    const { active, observe } = useActiveListItem()
-
+export const Timeline = ({ className, active, observe }: TTimelineProps) => {
     return (
         <section className={`${className} ${styles.wrapper}`}>
             <h2>Timeline</h2>

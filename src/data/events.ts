@@ -18,6 +18,12 @@ export const events: TTimelineEvent[] = [
         date: new Date('08-06-1945'),
         title: "Nagasaki",
         description: "Atomic bomb \"Fat Man\" is dropped on Nagasaki, Japan by the United States military. The second atomic bomb ever used in warfare and also the last. It was larger than the one used in Hiroshima."
-    }
+    },
+    ...Array.from({ length: 55 }, (_, idx) => ({
+        id: (2 + idx + 1).toString(),
+        date: new Date(`08-06-${1945 + idx + 1}`),
+        title: "Event",
+        description: "Some event"
+    }))
 ]
 

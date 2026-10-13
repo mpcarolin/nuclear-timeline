@@ -18,11 +18,12 @@ const toNuclearTests = (source: TTestRow[]) => {
     )
 }
 
-export const getTotalTestsByYear = (map: TNuclearTestMap) => {
+export const getTotalTestsByYear = (map: TNuclearTestMap, max?: number) => {
     return Object.values(map).reduce<Record<number, number>>(
         (acc, next) => {
             for (const [year, count] of Object.entries(next.testsByYear)) {
                 const yearNum = parseInt(year)
+                if (max !== undefined && yearNum > max) continue
                 if (acc[yearNum] === undefined) {
                     acc[yearNum] = 0
                 }
