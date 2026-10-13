@@ -1,4 +1,5 @@
 import type { TTimelineEvent, TTimelineEventElement } from '@/types/timeline';
+import { sortEvents } from '@/utils/sortEvents';
 
 import { useMemo, useRef, useState } from 'react';
 
@@ -46,7 +47,7 @@ export const useActiveListItem = ({
                     }
                 }
 
-                const first = Array.from(visibleListEvents.current).sort((a, b) => a.date - b.date)[0];
+                const first = sortEvents(Array.from(visibleListEvents.current))[0];
                 first && setActive(first.id);
             },
             options

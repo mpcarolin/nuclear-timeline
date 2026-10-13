@@ -14,7 +14,7 @@ export const TimelineEvent = ({ event, active, ref, }: TTimelineProps) => {
         <li className={styles.event}>
             <div ref={ref} className={`${styles.eventText} ${active ? styles.activeEvent : ''}`}>
                 <h3 className={styles.eventTitle}>
-                    {event.date}: {event.title}
+                    {event.date.toDateString()}: {event.title}
                 </h3>
                 <p className={styles.eventDescription}>
                     {event.description}
