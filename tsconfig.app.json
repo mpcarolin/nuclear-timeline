@@ -10,7 +10,8 @@
 
     /** Aliases */
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@sources/*": ["./datasources/*"]
     },
 
     /* Bundler mode */
