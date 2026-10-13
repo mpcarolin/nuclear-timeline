@@ -19,6 +19,9 @@ export const TimelineEvent = ({ event, active, ref, }: TTimelineProps) => {
                 <p className={styles.eventDescription}>
                     {event.description}
                 </p>
+                {
+                    event.image && <img src={event.image} width={500} className={styles.thumbnail} />
+                }
             </div>
         </li>
     );
