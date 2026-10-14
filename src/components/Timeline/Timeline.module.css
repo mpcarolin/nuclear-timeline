@@ -3,6 +3,17 @@
     flex-direction: column;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .subtitle {
+        margin: 0;
+        color: var(--color-text-subdued);
+    }
+}
+
 .list {
     overflow-y: auto;
     scrollbar-color: var(--color-text-subdued) transparent;

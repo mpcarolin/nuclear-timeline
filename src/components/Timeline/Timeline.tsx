@@ -13,7 +13,12 @@ export type TTimelineProps = {
 export const Timeline = ({ className, active, observe, onEventClick }: TTimelineProps) => {
     return (
         <section className={`${className} ${styles.wrapper}`}>
-            <h2>Timeline</h2>
+            <hgroup className={styles.header}>
+                <h2>Timeline</h2>
+                <p className={styles.subtitle}>
+                    {events[0].date.getFullYear()} - {events[events.length - 1].date.getFullYear()}
+                </p>
+            </hgroup>
             <ol className={styles.list}>
                 {
                     events.map((event) => (
