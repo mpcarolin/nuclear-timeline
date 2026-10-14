@@ -7,11 +7,12 @@ export type TTimelineProps = {
     active?: boolean;
     event: TTimelineEvent;
     ref: Ref<TTimelineEventElement>
+    onClick: React.MouseEventHandler<HTMLLIElement>
 }
 
-export const TimelineEvent = ({ event, active, ref, }: TTimelineProps) => {
+export const TimelineEvent = ({ event, active, onClick, ref }: TTimelineProps) => {
     return (
-        <li className={styles.event}>
+        <li className={styles.event} onClick={onClick}>
             <div ref={ref} className={`${styles.eventText} ${active ? styles.activeEvent : ''}`}>
                 <h3 className={styles.eventTitle}>
                     {event.date.toDateString()}: {event.title}

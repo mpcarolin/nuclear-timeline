@@ -7,9 +7,10 @@ export type TTimelineProps = {
     className?: string;
     active: string | null;
     observe: TListItemObserver;
+    onEventClick: (id: string) => void;
 }
 
-export const Timeline = ({ className, active, observe }: TTimelineProps) => {
+export const Timeline = ({ className, active, observe, onEventClick }: TTimelineProps) => {
     return (
         <section className={`${className} ${styles.wrapper}`}>
             <h2>Timeline</h2>
@@ -21,6 +22,7 @@ export const Timeline = ({ className, active, observe }: TTimelineProps) => {
                             key={event.id}
                             active={active === event.id}
                             ref={(node) => observe(node, event)}
+                            onClick={() => onEventClick(event.id)}
                         />
                     ))
                 }

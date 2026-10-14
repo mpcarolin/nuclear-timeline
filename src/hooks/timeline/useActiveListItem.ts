@@ -14,6 +14,12 @@ export type TActiveListItemResult = {
      * The id of the first event which is *completely* visible in the list
      */
     active: string | null;
+
+    /**
+     * Sets the active event and also scrolls it to the top of the list, smoothly.
+     * Used for click handling...
+     */
+    setActive: (id: string) => void;
 }
 
 const DEFAULT_OPTIONS: IntersectionObserverInit = {
@@ -63,6 +69,18 @@ export const useActiveListItem = ({
 
     return {
         active,
+
+        setActive: (id: string) => {
+            setActive(id);
+            const entries = [...listEvents.current.entries()]
+            const element = entries.find(([, event]) => event.id === id)?.[0];
+            element?.scrollIntoView({
+                block: "start",
+                inline: "nearest",
+                behavior: "smooth",
+            });
+        },
+
         observe
     }
 }
