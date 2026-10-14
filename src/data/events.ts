@@ -216,7 +216,7 @@ export const events: TTimelineEvent[] = [
         id: nextInt().toString(),
         date: new Date('03-11-1983'),
         title: "Pakistan",
-        description: "Pakistan begins nuclear weapons testing.",
+        description: "Pakistan begins its own nuclear weapons program.",
     },
     {
         id: nextInt().toString(),
