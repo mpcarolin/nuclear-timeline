@@ -3,12 +3,14 @@ import type { TTimelineEvent } from "@/types/timeline";
 import styles from "./VisualPane.module.css";
 import "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
+import { cssVar } from "@/utils/cssVar";
 import { countries, countryCodes, getTestCount, getTotalTestsByYear, nuclearTests, totalTestsByYear } from "@/data/tests";
 
 export type TVisualPaneProps = {
     className?: string;
     event?: TTimelineEvent
 }
+
 
 export const VisualPane = ({ className, event }: TVisualPaneProps) => {
     const year = event?.date.getFullYear()
@@ -22,6 +24,8 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
                         labels: Object.keys(totalTestsByYear),
                         datasets: [
                             {
+                                backgroundColor: cssVar("color-alert"),
+                                borderColor: cssVar("color-alert"),
                                 label: "Total Tests By Year",
                                 data: getTotalTestsByYear(nuclearTests, year)
                             }
@@ -35,6 +39,7 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
                         labels: countries,
                         datasets: [
                             {
+                                backgroundColor: cssVar("color-calm"),
                                 label: `Nuclear Weapon Tests in ${year}`,
                                 data: countryCodes.map(code => getTestCount(nuclearTests, code, year))
                             },
