@@ -10,3 +10,7 @@
     margin: 0px;
 }
 
+.citation {
+    font-size: 10px;
+    align-self: end;
+}
