@@ -6,7 +6,7 @@
 .viewButtons {
     display: flex;
     justify-content: space-around;
-    margin-block: var(--gutter-lg);
+    margin-block: var(--gutter-xlg);
 
     button {
         width: 150px;
@@ -31,6 +31,4 @@
 .chart {
     display: flex;
     flex: 1;
-    min-height: 0;
-    min-width: 0;
 }
