@@ -1,11 +1,9 @@
 import type { TTimelineEvent } from "@/types/timeline";
 
 import styles from "./VisualPane.module.css";
-import "chart.js/auto";
-import { Bar, Line } from "react-chartjs-2";
-import { cssVar } from "@/utils/cssVar";
-import { countries, countryCodes, getTestCount, getTotalTestsByYear, nuclearTests, totalTestsByYear } from "@/data/tests";
 import { useState } from "react";
+import { LineChart } from "./LineChart/LineChart";
+import { BarChart } from "./BarChart/BarChart";
 
 export type TVisualPaneProps = {
     className?: string;
@@ -45,43 +43,8 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
                     Geo
                 </button>
             </div>
-            {
-                showLine && (
-                    <div className={styles.chart}>
-                        <Line
-                            data={{
-                                labels: Object.keys(totalTestsByYear),
-                                datasets: [
-                                    {
-                                        backgroundColor: cssVar("color-alert"),
-                                        borderColor: cssVar("color-alert"),
-                                        label: "Total Tests By Year",
-                                        data: getTotalTestsByYear(nuclearTests, year)
-                                    }
-                                ]
-                            }}
-                        />
-                    </div>
-                )
-            }
-            {
-                showBar && (
-                    <div className={styles.chart}>
-                        <Bar
-                            data={{
-                                labels: countries,
-                                datasets: [
-                                    {
-                                        backgroundColor: cssVar("color-calm"),
-                                        label: `Nuclear Weapon Tests in ${year}`,
-                                        data: countryCodes.map(code => getTestCount(nuclearTests, code, year))
-                                    },
-                                ]
-                            }}
-                        />
-                    </div>
-                )
-            }
+            {showLine && <LineChart year={year} className={styles.chart} />}
+            {showBar && <BarChart year={year} className={styles.chart} />}
         </div>
     );
 }
