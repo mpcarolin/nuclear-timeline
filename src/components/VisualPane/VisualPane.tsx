@@ -4,6 +4,7 @@ import styles from "./VisualPane.module.css";
 import { useState } from "react";
 import { LineChart } from "./LineChart/LineChart";
 import { BarChart } from "./BarChart/BarChart";
+import { GeoViz } from "./GeoViz/GeoViz";
 
 export type TVisualPaneProps = {
     className?: string;
@@ -13,7 +14,7 @@ export type TVisualPaneProps = {
 type ViewOption = "line" | "bar" | "geo"
 
 export const VisualPane = ({ className, event }: TVisualPaneProps) => {
-    const [view, setView] = useState<ViewOption>("line");
+    const [view, setView] = useState<ViewOption>("geo");
     const showLine = view === "line";
     const showBar = view === "bar";
     const showGeo = view === "geo";
@@ -45,6 +46,7 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
             </div>
             {showLine && <LineChart year={year} className={styles.chart} />}
             {showBar && <BarChart year={year} className={styles.chart} />}
+            {showGeo && <GeoViz />}
         </div>
     );
 }
