@@ -232,7 +232,7 @@ export const events: TTimelineEvent[] = [
         id: nextInt().toString(),
         date: new Date('10-30-1961'),
         title: "Tsar Bomba",
-        description: "The largest nuclear weapon ever detonated in history is carried out by the Soviet Union over the Arctic Ocean. Named \"Tsar Bomba\", it yielded 57 megatons, 4 times larger than any weapon tested by the United States.",
+        description: "The largest nuclear weapon ever detonated in history is carried out by the Soviet Union in its far north. Named \"Tsar Bomba\", it yielded 57 megatons, 4 times larger than any weapon tested by the United States.",
         coord: {
             lat: 73.8500,
             long: 54.5000,
