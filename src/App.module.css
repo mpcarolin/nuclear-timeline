@@ -6,7 +6,7 @@ main {
   flex-direction: column;
 }
 
-h1 {
+.heading {
   text-align: center;
 }
 
