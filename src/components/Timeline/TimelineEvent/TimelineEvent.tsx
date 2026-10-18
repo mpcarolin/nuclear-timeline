@@ -2,6 +2,7 @@ import type { Ref } from 'react'
 import type { TTimelineEvent, TTimelineEventElement } from "@/types/timeline";
 
 import styles from "./TimelineEvent.module.css"
+import { EventImage } from './EventImage';
 
 export type TTimelineProps = {
     active?: boolean;
@@ -25,14 +26,7 @@ export const TimelineEvent = ({ event, active, onClick, ref }: TTimelineProps) =
                 <p className={styles.eventDescription}>
                     {event.description}
                 </p>
-                {
-                    event.image && (
-                        <img
-                            src={event.image.src}
-                            className={styles.thumbnail}
-                        />
-                    )
-                }
+                {event.image && <EventImage image={event.image} />}
             </div>
         </li>
     );
