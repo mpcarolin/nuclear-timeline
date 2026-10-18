@@ -21,10 +21,17 @@
         text-align: center;
         border: 1px solid transparent;
         border-radius: 80px;
+        opacity: 0.6;
+    }
+
+    button:hover {
+        opacity: 1;
     }
 
     .selectedButton {
-        border: 1px solid var(--color-calm);
+        color: white;
+        background-color: var(--color-alert);
+        opacity: 1;
     }
 }
 
