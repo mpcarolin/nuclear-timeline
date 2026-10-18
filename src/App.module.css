@@ -19,11 +19,13 @@ main {
 
 .timeline {
   flex: 3;
+  min-width: 50px;
   padding: var(--gutter-lg);
   border-right: 1px solid var(--color-subdued);
 }
 
 .visuals {
   flex: 5;
+  min-width: 0;
   padding: var(--gutter-lg);
 }
