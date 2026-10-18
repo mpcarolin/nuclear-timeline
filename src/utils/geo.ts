@@ -1,7 +1,14 @@
+import type { TCoordinate } from "@/types/timeline";
+
 import * as THREE from "three";
 import { INIT_CAM_POS } from "@/constants/geo";
 
-export const getCamPosition = (lat: number, long: number): THREE.Vector3 => {
+export const getCamPosition = (coord?: TCoordinate): THREE.Vector3 => {
+    const start = new THREE.Vector3(...INIT_CAM_POS);
+    if (!coord) return start;
+
+    const { lat, long } = coord;
+
     // convert to radians, since lat/long are in degrees
     const latRad = THREE.MathUtils.degToRad(lat);
     const longRad = THREE.MathUtils.degToRad(long);
@@ -9,7 +16,6 @@ export const getCamPosition = (lat: number, long: number): THREE.Vector3 => {
     const up = new THREE.Vector3(0, 1, 0);
     const right = new THREE.Vector3(1, 0, 0);
 
-    const start = new THREE.Vector3(...INIT_CAM_POS);
 
     // A positive x change in threejs is counterclockwise around the axis, 
     // and this would move a point on the sphere from north to south. However,
