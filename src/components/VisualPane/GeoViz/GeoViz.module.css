@@ -1,5 +1,6 @@
 .canvasWrapper {
     height: 100vh;
+    border-radius: 25px;
     background: black;
 }
 

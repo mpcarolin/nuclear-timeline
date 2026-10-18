@@ -8,6 +8,9 @@ main {
 
 .heading {
   text-align: center;
+  p {
+    font-style: italic;
+  }
 }
 
 .wrapper {
