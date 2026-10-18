@@ -1,16 +1,32 @@
 import type { TCoordinate } from "@/types/timeline";
 
-import { useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { useRef, useEffect } from "react";
+import { CameraControls } from "@react-three/drei";
 import { getCamPosition } from "@/utils/geo";
 
 export const Camera = ({ coord }: { coord?: TCoordinate }) => {
-    useThree(({ camera }) => {
-        const vec = getCamPosition(coord);
-        camera.position.set(vec.x, vec.y, vec.z);
-    });
+    const ref = useRef<CameraControls>(null);
+
+    useEffect(() => {
+        const controls = ref.current;
+        if (!controls || !coord) {
+            return;
+        }
+
+        const target = getCamPosition(coord);
+        controls.setPosition(
+            target.x,
+            target.y,
+            target.z,
+            true // smoothly lerp around globe
+        );
+
+    }, [coord]);
 
     return (
-        <OrbitControls />
+        <CameraControls
+            ref={ref}
+            enabled={false}
+        />
     )
 }
