@@ -14,7 +14,7 @@ export type TVisualPaneProps = {
 type ViewOption = "line" | "bar" | "geo"
 
 export const VisualPane = ({ className, event }: TVisualPaneProps) => {
-    const [view, setView] = useState<ViewOption>("geo");
+    const [view, setView] = useState<ViewOption>("line");
     const showLine = view === "line";
     const showBar = view === "bar";
     const showGeo = view === "geo";
@@ -41,7 +41,7 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
                     className={showGeo ? styles.selectedButton : ""}
                     onClick={() => setView("geo")}
                 >
-                    Geo
+                    Location
                 </button>
             </div>
             {showLine && <LineChart year={year} className={styles.chart} />}
