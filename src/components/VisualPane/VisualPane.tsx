@@ -46,7 +46,7 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
             </div>
             {showLine && <LineChart year={year} className={styles.chart} />}
             {showBar && <BarChart year={year} className={styles.chart} />}
-            {showGeo && <GeoViz />}
+            {showGeo && <GeoViz coord={event?.coord} />}
         </div>
     );
 }
