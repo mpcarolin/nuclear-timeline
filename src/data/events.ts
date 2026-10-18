@@ -242,7 +242,7 @@ export const events: TTimelineEvent[] = [
         id: nextInt().toString(),
         date: new Date('1958-08-27T00:00:00'),
         title: "Explosions in Space",
-        description: "United States conducts \"Operation Argus\", detonating a nuclear device in space, creating a radiation belt that wraps the planet. The detonation was intended to test if this radiation in space could defend against Societ missiles by overloading warheads' electronics.",
+        description: "United States conducts \"Operation Argus\", detonating a nuclear device in space, creating a radiation belt that wraps the planet. The detonation was intended to test if this radiation in space could defend against Soviet missiles by overloading warheads' electronics.",
         image: {
             src: "argus.gif",
             attribution: "AEC/USDE - Trinity & Beyond: The Atomic Bomb Movie"
