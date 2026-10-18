@@ -21,7 +21,7 @@ export const TimelineEvent = ({ event, active, onClick, ref }: TTimelineProps) =
                     {event.description}
                 </p>
                 {
-                    event.image && <img src={event.image} width={500} className={styles.thumbnail} />
+                    event.image && <img src={event.image} width="100%" className={styles.thumbnail} />
                 }
             </div>
         </li>

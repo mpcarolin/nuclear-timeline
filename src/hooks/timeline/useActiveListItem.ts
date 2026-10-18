@@ -21,6 +21,13 @@ export type TActiveListItemResult = {
      */
     setActive: (id: string) => void;
 }
+export type TUseActiveListItemParams = {
+    /**
+     * Optional initial id to start as the first active item
+     */
+    initId?: string;
+    options?: IntersectionObserverInit
+}
 
 const DEFAULT_OPTIONS: IntersectionObserverInit = {
     threshold: 1.0
@@ -30,10 +37,10 @@ const DEFAULT_OPTIONS: IntersectionObserverInit = {
  * Finds the first *visible* list item in the list (using intersection observer)
  */
 export const useActiveListItem = ({
+    initId,
     options = DEFAULT_OPTIONS
-}: { options?: IntersectionObserverInit } = {}
-): TActiveListItemResult => {
-    const [active, setActive] = useState<string | null>(null);
+}: TUseActiveListItemParams = {}): TActiveListItemResult => {
+    const [active, setActive] = useState<string | null>(initId ?? null);
     const listEvents = useRef(new Map<TTimelineEventElement, TTimelineEvent>());
     const visibleListEvents = useRef(new Set<TTimelineEvent>());
 

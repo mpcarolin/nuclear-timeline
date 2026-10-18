@@ -6,7 +6,7 @@ import { events } from '@/data/events'
 
 function App() {
   // TODO: this doesn't belong here, but VisualPane needs the active event. Maybe introduce an EventContext or something. 
-  const { active, setActive, observe } = useActiveListItem()
+  const { active, setActive, observe } = useActiveListItem({ initId: events[0].id })
   const activeEvent = events.find(event => event.id === active)
   return (
     <main>
