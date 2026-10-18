@@ -2,7 +2,7 @@ import type { TCoordinate } from "@/types/timeline";
 
 import { useRef, useEffect } from "react";
 import { CameraControls } from "@react-three/drei";
-import { getCamPosition } from "@/utils/geo";
+import { getCoordPosition } from "@/utils/geo";
 
 export const Camera = ({ coord }: { coord?: TCoordinate }) => {
     const ref = useRef<CameraControls>(null);
@@ -13,7 +13,7 @@ export const Camera = ({ coord }: { coord?: TCoordinate }) => {
             return;
         }
 
-        const target = getCamPosition(coord);
+        const target = getCoordPosition(coord);
         controls.setPosition(
             target.x,
             target.y,

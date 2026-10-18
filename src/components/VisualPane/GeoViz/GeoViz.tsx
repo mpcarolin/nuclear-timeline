@@ -6,6 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { INIT_CAM_POS } from "@/constants/geo";
 import { Earth } from "./Earth";
 import { Camera } from "./Camera";
+import { LocationHighlight } from "./LocationHighlight";
 
 
 export const GeoViz = ({ coord }: { coord?: TCoordinate }) => {
@@ -21,6 +22,7 @@ export const GeoViz = ({ coord }: { coord?: TCoordinate }) => {
                         position={INIT_CAM_POS}
                     />
                     <Earth />
+                    <LocationHighlight coord={coord} />
                 </Canvas>
             </div>
         </Suspense>

@@ -15,3 +15,7 @@ export const INIT_CAM_POS = [0, 0, CAM_DIST] as const;
  * lat long (0,0) with the threejs z axis
  */
 export const INIT_EARTH_ROTATION = [0, -Math.PI / 2, 0] as const;
+
+export const EARTH_RADIUS = 3;
+export const LOCATION_HIGHLIGHT_RADIUS = 0.05;
+export const LOCATION_HIGHLIGHT_DIST = 3;
