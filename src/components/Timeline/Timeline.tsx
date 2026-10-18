@@ -32,7 +32,7 @@ export const Timeline = ({ className, active, observe, onEventClick }: TTimeline
                     ))
                 }
             </ol>
-            <cite className={styles.citation}>
+            <cite className="citation">
                 Source: <a href="https://ahf.nuclearmuseum.org/ahf/nuc-history/timeline/">Atomic Heritage Foundation</a>
             </cite>
         </section>

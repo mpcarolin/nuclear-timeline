@@ -47,6 +47,10 @@ export const VisualPane = ({ className, event }: TVisualPaneProps) => {
             {showLine && <LineChart year={year} className={styles.chart} />}
             {showBar && <BarChart year={year} className={styles.chart} />}
             {showGeo && <GeoViz coord={event?.coord} />}
+            {(showLine || showBar) && <cite className="citation">
+                Source: <a href="https://ourworldindata.org/grapher/number-of-nuclear-weapons-tests#sources-and-processing">Arms Control Association, with minor processing by Our World in Data</a>
+            </cite>
+            }
         </div>
     );
 }
