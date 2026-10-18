@@ -20,7 +20,7 @@ export const GeoViz = ({ coord }: { coord?: TCoordinate }) => {
                         intensity={2}
                         position={INIT_CAM_POS}
                     />
-                    <Earth coord={coord} />
+                    <Earth />
                 </Canvas>
             </div>
         </Suspense>
