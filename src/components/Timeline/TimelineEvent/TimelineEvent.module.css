@@ -5,9 +5,11 @@
     padding-bottom: 80px;
 
     .eventText {
+        display: flex;
+        flex-direction: column;
         margin-left: 30px;
         color: var(--color-text);
-        opacity: 0.3;
+        opacity: 0.4;
         cursor: pointer;
     }
 
@@ -41,5 +43,7 @@
 }
 
 .thumbnail {
+    max-width: 300px;
+    align-self: center;
     border-radius: 25px;
 }

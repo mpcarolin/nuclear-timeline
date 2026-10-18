@@ -10,18 +10,28 @@ export type TTimelineProps = {
     onClick: React.MouseEventHandler<HTMLLIElement>
 }
 
+const formatDate = (date: Date) => {
+    const fmt = new Intl.DateTimeFormat("en-US", { dateStyle: "long" })
+    return fmt.format(date)
+}
+
 export const TimelineEvent = ({ event, active, onClick, ref }: TTimelineProps) => {
     return (
-        <li className={styles.event} onClick={onClick}>
-            <div ref={ref} className={`${styles.eventText} ${active ? styles.activeEvent : ''}`}>
+        <li className={styles.event} onClick={onClick} ref={ref}>
+            <div className={`${styles.eventText} ${active ? styles.activeEvent : ''}`}>
                 <h3 className={styles.eventTitle}>
-                    {event.date.toDateString()}: {event.title}
+                    {formatDate(event.date)}: {event.title}
                 </h3>
                 <p className={styles.eventDescription}>
                     {event.description}
                 </p>
                 {
-                    event.image && <img src={event.image} width="100%" className={styles.thumbnail} />
+                    event.image && (
+                        <img
+                            src={event.image.src}
+                            className={styles.thumbnail}
+                        />
+                    )
                 }
             </div>
         </li>
