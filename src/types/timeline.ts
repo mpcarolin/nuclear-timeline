@@ -7,10 +7,13 @@ export type TCoordinate = {
 export type TTimelineEvent = {
     id: string;
     date: Date;
-    image?: string;
+    image?: {
+        src: string;
+        attribution?: string;
+    }
     title: string;
     description: string;
     coord: TCoordinate;
 }
 
-export type TTimelineEventElement = HTMLDivElement
+export type TTimelineEventElement = HTMLLIElement

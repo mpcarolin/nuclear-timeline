@@ -1,6 +1,5 @@
 import type { TTimelineEvent } from "@/types/timeline";
 
-import trinity from "@/assets/trinity.png"
 import { infinite } from "@/utils/infinite";
 
 const nextInt = infinite();
@@ -12,7 +11,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1945-07-16T00:00:00'),
         title: "Trinity",
         description: "The first detonation of a nuclear weapon is conducted by the United States Army. Part of the Manhattan project, the test uses an implosion-design plutonium bomb.",
-        image: trinity,
+        image: {
+            src: "/trinity.jpg",
+            attribution: "Berlyn Brixner, Los Alamos National Laboratory"
+        },
         coord: {
             lat: 34.307144,
             long: -106.018066,
@@ -35,6 +37,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1945-08-09T00:00:00'),
         title: "Nagasaki",
         description: "Atomic bomb \"Fat Man\" is dropped on Nagasaki, Japan by the United States military. The second atomic bomb ever used in warfare and also the last. It was larger than the one used in Hiroshima.",
+        image: {
+            src: "/nagasaki.jpg",
+            attribution: "Charles Levy, Office for Emergency Management"
+        },
         coord: {
             lat: 32.7736,
             long: 129.8633,
@@ -57,6 +63,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1946-07-01T00:00:00'),
         title: "Operation Crossroads",
         description: "The United States conducts its first postwar test of a nuclear weapon in the marshall Islands. The goal is to study the capabilities of nuclear weaponry for naval warfare.",
+        image: {
+            src: "/operation_crossroads.gif",
+            attribution: "USDE"
+        },
         coord: {
             lat: 11.59,
             long: 165.5,
@@ -79,6 +89,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1949-08-29T00:00:00'),
         title: "First USSR Explosion",
         description: "Using the United States' \"Fat Man\" bomb as a model, the Soviet Union detonates an atomic bomb for the first time. The yield is similar to the bombs used in Hiroshima and Nagasaki, at 22 kilotons.",
+        image: {
+            src: "/joe-1.jpg",
+            attribution: "nuclearweaponarchive.org"
+        },
         coord: {
             lat: 50.4375,
             long: 77.8142,
@@ -101,6 +115,9 @@ export const events: TTimelineEvent[] = [
         date: new Date('1950-06-09T00:00:00'),
         title: "Bohr's Open Letter",
         description: "Physicist Niels Bohr addresses the United Nations in a letter asking for transparent nuclear research and military development among nations, arguing international arms control will be difficult without this.",
+        image: {
+            src: "/bohr_letter.jpg",
+        },
         coord: {
             lat: 55.6969,
             long: 12.5717,
@@ -112,6 +129,9 @@ export const events: TTimelineEvent[] = [
         date: new Date('1951-01-27T00:00:00'),
         title: "Nevada Test Site",
         description: "The United States tests the first nuclear weapon at the Nevada Test Site as part of Operation Ranger.",
+        image: {
+            src: "mk_4a.jpg"
+        },
         coord: {
             lat: 36.8256,
             long: -115.9650,
@@ -167,6 +187,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1953-12-08T00:00:00'),
         title: "Eisenhower's Speech",
         description: "President Eisenhower delivers his speech titled \"Atoms for Peace\", in which he presents a program for peaceful distribution of nuclear technology to countries with less advanced research.",
+        image: {
+            src: "atoms_for_peace.jpg",
+            attribution: "energy.gov"
+        },
         coord: {
             lat: 40.7494,
             long: -73.9681,
@@ -178,6 +202,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1954-03-01T00:00:00'),
         title: "Bravo",
         description: "U.S. detonates the largest thermonuclear nuclear bomb up to this point, at 15 megatons, in a test titled \"Bravo\". This bomb was promptly made into a weaponized form that could be delivered by aircraft.",
+        image: {
+            src: "bravo.gif",
+            attribution: "USDE"
+        },
         coord: {
             lat: 11.6972,
             long: 165.2719,
@@ -200,6 +228,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1957-06-24T00:00:00'),
         title: "Priscilla",
         description: "The United States conducts a test called \"Shot Priscilla\" in the Nevada Test Site. This was the third in a series of nuclear tests that later became controversial for civilian exposure to radiation. The operation's tests released around 58,300 kilocuries of radioiodine into the atmosphere.",
+        image: {
+            src: "priscilla.gif",
+            attribution: "USDE/AEC"
+        },
         coord: {
             lat: 36.8256,
             long: -115.9650,
@@ -210,7 +242,11 @@ export const events: TTimelineEvent[] = [
         id: nextInt().toString(),
         date: new Date('1958-08-27T00:00:00'),
         title: "Explosions in Space",
-        description: "United States conducts \"Operation Argus\", detonating a nuclear device in space, creating a radiation belt that wraps the planet.",
+        description: "United States conducts \"Operation Argus\", detonating a nuclear device in space, creating a radiation belt that wraps the planet. The detonation was intended to test if this radiation in space could defend against Societ missiles by overloading warheads' electronics.",
+        image: {
+            src: "argus.gif",
+            attribution: "AEC/USDE - Trinity & Beyond: The Atomic Bomb Movie"
+        },
         coord: {
             lat: -38.5,
             long: -11.5,
@@ -233,6 +269,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1961-10-30T00:00:00'),
         title: "Tsar Bomba",
         description: "The largest nuclear weapon ever detonated in history is carried out by the Soviet Union in its far north. Named \"Tsar Bomba\", it yielded 57 megatons, 4 times larger than any weapon tested by the United States.",
+        image: {
+            src: "tsar_bomba.png",
+            attribution: "Rosatom State Corporation Communications Department"
+        },
         coord: {
             lat: 73.8500,
             long: 54.5000,
@@ -244,6 +284,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1962-10-16T00:00:00'),
         title: "Cuban Missile Crisis",
         description: "The Cuban Missile Crisis begins when the United States discovers Soviet missiles in Cuba.",
+        image: {
+            src: "cuba_crisis.png",
+            attribution: "Defense Intelligence Agency"
+        },
         coord: {
             lat: 22.6681,
             long: -83.2972,
@@ -332,6 +376,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1972-05-26T00:00:00'),
         title: "Slow down the Arms Race",
         description: "The Anti-Ballistic Missile Treaty (ABM) and the Strategic Arms Limitation Treaty (SALT) are signed by President Nixon and Soviet Premier Leonid Brezhnev.",
+        image: {
+            src: "salt_abm.jpg",
+            attribution: "White House Photo Office"
+        },
         coord: {
             lat: 55.7961,
             long: 37.4786,
@@ -398,6 +446,10 @@ export const events: TTimelineEvent[] = [
         date: new Date('1986-04-26T00:00:00'),
         title: "Chernobyl",
         description: "Chernobyl Nuclear Power Plant in Ukraine undergoes a catastrophic nuclear meltdown. Large quantities of radiation is released into Ukraine and spreads over much of Europe and the western Soviet Union.",
+        image: {
+            src: "chernobyl.jpg",
+            attribution: "International Atomic Energy Agency"
+        },
         coord: {
             lat: 51.3892,
             long: 30.0994,
@@ -446,6 +498,9 @@ export const events: TTimelineEvent[] = [
             lat: 28.7927,
             long: 64.9457,
             name: "Balochistan, Pakistan"
+        },
+        image: {
+            src: "/pakistan_test_region.jpg"
         }
     },
 ]
