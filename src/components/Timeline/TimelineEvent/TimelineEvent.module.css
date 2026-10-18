@@ -13,6 +13,11 @@
         cursor: pointer;
     }
 
+    .eventTitle {
+        margin: 0;
+        margin-top: var(--gutter-sm);
+    }
+
     .activeEvent {
         opacity: 1;
     }
