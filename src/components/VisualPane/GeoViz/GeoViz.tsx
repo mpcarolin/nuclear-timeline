@@ -11,6 +11,7 @@ import { Camera } from "./Camera";
 export const GeoViz = ({ coord }: { coord?: TCoordinate }) => {
     return (
         <Suspense fallback={<p>loading</p>}>
+            <h3 className={styles.header}>{coord?.name}</h3>
             <div id="canvas-container" className={styles.canvasWrapper}>
                 <Canvas>
                     <Camera coord={coord} />
