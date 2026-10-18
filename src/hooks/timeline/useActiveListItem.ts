@@ -30,7 +30,7 @@ export type TUseActiveListItemParams = {
 }
 
 const DEFAULT_OPTIONS: IntersectionObserverInit = {
-    threshold: 1.0
+    threshold: 0.5
 }
 
 /**
