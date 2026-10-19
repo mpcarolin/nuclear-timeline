@@ -9,6 +9,7 @@
     margin-block: var(--gutter-xlg);
 
     button {
+        font-family: var(--heading);
         width: 150px;
         color: inherit;
         text-decoration: none;

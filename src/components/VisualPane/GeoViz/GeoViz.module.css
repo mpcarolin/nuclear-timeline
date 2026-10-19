@@ -6,4 +6,5 @@
 
 .header {
     text-align: center;
+    font-family: var(--heading);
 }

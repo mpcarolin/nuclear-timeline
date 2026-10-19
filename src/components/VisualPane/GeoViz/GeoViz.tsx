@@ -12,7 +12,7 @@ import { LocationHighlight } from "./LocationHighlight";
 export const GeoViz = ({ coord }: { coord?: TCoordinate }) => {
     return (
         <Suspense fallback={<p>loading</p>}>
-            <h3 className={styles.header}>{coord?.name}</h3>
+            <h4 className={styles.header}>{coord?.name}</h4>
             <div id="canvas-container" className={styles.canvasWrapper}>
                 <Canvas>
                     <Camera coord={coord} />
