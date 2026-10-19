@@ -12,7 +12,7 @@ export const events: TTimelineEvent[] = [
         title: "Trinity",
         description: "The first detonation of a nuclear weapon is conducted by the United States Army. Part of the Manhattan project, the test uses an implosion-design plutonium bomb.",
         image: {
-            src: "/trinity.jpg",
+            src: "trinity.jpg",
             attribution: "Berlyn Brixner, Los Alamos National Laboratory"
         },
         coord: {
@@ -38,7 +38,7 @@ export const events: TTimelineEvent[] = [
         title: "Nagasaki",
         description: "Atomic bomb \"Fat Man\" is dropped on Nagasaki, Japan by the United States military. The second atomic bomb ever used in warfare and also the last. It was larger than the one used in Hiroshima.",
         image: {
-            src: "/nagasaki.jpg",
+            src: "nagasaki.jpg",
             attribution: "Charles Levy, Office for Emergency Management"
         },
         coord: {
@@ -64,7 +64,7 @@ export const events: TTimelineEvent[] = [
         title: "Operation Crossroads",
         description: "The United States conducts its first postwar test of a nuclear weapon in the marshall Islands. The goal is to study the capabilities of nuclear weaponry for naval warfare.",
         image: {
-            src: "/operation_crossroads.gif",
+            src: "operation_crossroads.gif",
             attribution: "USDE"
         },
         coord: {
@@ -90,7 +90,7 @@ export const events: TTimelineEvent[] = [
         title: "First USSR Explosion",
         description: "Using the United States' \"Fat Man\" bomb as a model, the Soviet Union detonates an atomic bomb for the first time. The yield is similar to the bombs used in Hiroshima and Nagasaki, at 22 kilotons.",
         image: {
-            src: "/joe-1.jpg",
+            src: "joe-1.jpg",
             attribution: "nuclearweaponarchive.org"
         },
         coord: {
@@ -116,7 +116,7 @@ export const events: TTimelineEvent[] = [
         title: "Bohr's Open Letter",
         description: "Physicist Niels Bohr addresses the United Nations in a letter asking for transparent nuclear research and military development among nations, arguing international arms control will be difficult without this.",
         image: {
-            src: "/bohr_letter.jpg",
+            src: "bohr_letter.jpg",
         },
         coord: {
             lat: 55.6969,
@@ -500,7 +500,7 @@ export const events: TTimelineEvent[] = [
             name: "Balochistan, Pakistan"
         },
         image: {
-            src: "/pakistan_test_region.jpg"
+            src: "pakistan_test_region.jpg"
         }
     },
 ]

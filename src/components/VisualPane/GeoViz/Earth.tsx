@@ -4,7 +4,7 @@ import { TextureLoader, type Mesh } from "three";
 import { EARTH_RADIUS, INIT_EARTH_ROTATION } from "@/constants/geo";
 
 export const Earth = ({ ref }: { ref?: RefObject<Mesh>, }) => {
-    const texture = useLoader(TextureLoader, "/2k_earth_daymap.jpg");
+    const texture = useLoader(TextureLoader, "2k_earth_daymap.jpg");
 
     return (
         <mesh ref={ref} rotation={INIT_EARTH_ROTATION}>
