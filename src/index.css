@@ -1,5 +1,6 @@
 :root {
   --color-bg: #e8e5dd;
+  --color-bg-dark: #1D2128;
   --color-subdued: #d8d4c9;
   --color-text: #1c2127;
   --color-text-subdued: #565c63;
@@ -10,7 +11,7 @@
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: Georgia, serif;
   --mono: ui-monospace, Consolas, monospace;
 
   --gutter-sm: 2px;

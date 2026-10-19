@@ -6,6 +6,7 @@
 .header {
     display: flex;
     flex-direction: row;
+    font-family: var(--heading);
     justify-content: space-between;
     align-items: center;
     .subtitle {

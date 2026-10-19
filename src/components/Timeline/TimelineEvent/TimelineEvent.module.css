@@ -15,6 +15,7 @@
 
     .eventTitle {
         margin: 0;
+        font-family: var(--heading);
         margin-top: var(--gutter-sm);
     }
 

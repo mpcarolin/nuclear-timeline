@@ -7,10 +7,10 @@ main {
 }
 
 .heading {
+  font-family: var(--heading);
   text-align: center;
-  p {
-    font-style: italic;
-  }
+  background-color: var(--color-bg-dark);
+  color: white;
 }
 
 .wrapper {
