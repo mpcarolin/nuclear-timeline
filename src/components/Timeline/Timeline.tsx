@@ -31,6 +31,8 @@ export const Timeline = ({ className, active, observe, onEventClick }: TTimeline
                         />
                     ))
                 }
+                { /* this empty spacer ensures the last event can scroll to the top of the list */}
+                <li style={{ height: 500 }} />
             </ol>
             <cite className="citation">
                 Source: <a href="https://ahf.nuclearmuseum.org/ahf/nuc-history/timeline/">Atomic Heritage Foundation</a>
