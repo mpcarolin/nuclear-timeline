@@ -2,6 +2,11 @@ import type { TTimelineEvent, TTimelineEventElement } from "@/types/timeline";
 
 import { sortEvents } from "./sortEvents";
 
+/**
+ * Returns an intersection observer which tracks the events
+ * in the timeline list, determines which are visible,
+ * then calls setActive on the first visible event.
+ */
 export const buildEventObserver = (
     listEvents: Map<TTimelineEventElement, TTimelineEvent>,
     visibleListEvents: Set<TTimelineEvent>,
