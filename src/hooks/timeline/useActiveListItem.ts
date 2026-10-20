@@ -1,7 +1,7 @@
 import type { TTimelineEvent, TTimelineEventElement } from '@/types/timeline';
-import { sortEvents } from '@/utils/sortEvents';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { buildEventObserver } from '@/utils/buildEventObserver';
 
 export type TListItemObserver = (node: TTimelineEventElement | null, event: TTimelineEvent) => void
 export type TActiveListItemResult = {
@@ -41,36 +41,28 @@ export const useActiveListItem = ({
     options = DEFAULT_OPTIONS
 }: TUseActiveListItemParams = {}): TActiveListItemResult => {
     const [active, setActive] = useState<string | null>(initId ?? null);
-    const listEvents = useRef(new Map<TTimelineEventElement, TTimelineEvent>());
-    const visibleListEvents = useRef(new Set<TTimelineEvent>());
+    const listEventsRef = useRef(new Map<TTimelineEventElement, TTimelineEvent>());
+    const visibleListEventsRef = useRef(new Set<TTimelineEvent>());
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
-    const observer = useMemo(() => {
-        return new IntersectionObserver(
-            (entries) => {
-                for (const entry of entries) {
-                    const event = listEvents.current.get(entry.target as TTimelineEventElement);
-                    if (!event) {
-                        console.warn("Encountered intersection entry for element not in the tracked list.");
-                        continue
-                    }
-                    if (entry.isIntersecting) {
-                        event && visibleListEvents.current.add(event);
-                    } else {
-                        event && visibleListEvents.current.delete(event);
-                    }
-                }
-
-                const first = sortEvents(Array.from(visibleListEvents.current))[0];
-                first && setActive(first.id);
-            },
+    useEffect(() => {
+        observerRef.current = buildEventObserver(
+            listEventsRef.current,
+            visibleListEventsRef.current,
+            setActive,
             options
-        )
-    }, [listEvents]);
+        );
+
+        return () => {
+            observerRef.current?.disconnect();
+        }
+    }, [listEventsRef, visibleListEventsRef, setActive, options]);
+
 
     const observe = (node: TTimelineEventElement | null, event: TTimelineEvent) => {
         if (node) {
-            listEvents.current.set(node, event);
-            observer.observe(node);
+            listEventsRef.current.set(node, event);
+            observerRef.current?.observe(node);
         }
     }
 
@@ -79,7 +71,7 @@ export const useActiveListItem = ({
 
         setActive: (id: string) => {
             setActive(id);
-            const entries = [...listEvents.current.entries()]
+            const entries = [...listEventsRef.current.entries()]
             const element = entries.find(([, event]) => event.id === id)?.[0];
             element?.scrollIntoView({
                 block: "start",

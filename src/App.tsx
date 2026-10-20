@@ -5,7 +5,7 @@ import { useActiveListItem } from '@/hooks/timeline/useActiveListItem'
 import { events } from '@/data/events'
 
 function App() {
-  // TODO: this doesn't belong here, but VisualPane needs the active event. Maybe introduce an EventContext or something. 
+  // TODO: might want to share active event with a react context
   const { active, setActive, observe } = useActiveListItem({ initId: events[0].id })
   const activeEvent = events.find(event => event.id === active)
   return (
