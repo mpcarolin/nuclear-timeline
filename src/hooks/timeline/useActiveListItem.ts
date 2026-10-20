@@ -6,6 +6,16 @@ import { buildEventObserver } from '@/utils/buildEventObserver';
 export type TListItemObserver = (node: TTimelineEventElement | null, event: TTimelineEvent) => void
 export type TActiveListItemResult = {
     /**
+     * Indicates the observer is ready to start observing
+     *
+     * Needed because the observer is initialized in an effect,
+     * and it is *possible* that a caller may call the returned 
+     * observe() function on list items BEFORE the observer 
+     * is initialized.
+     */
+    ready: boolean;
+
+    /**
      * Starts observing a given list item for visibility
      */
     observe: TListItemObserver;
@@ -21,6 +31,7 @@ export type TActiveListItemResult = {
      */
     setActive: (id: string) => void;
 }
+
 export type TUseActiveListItemParams = {
     /**
      * Optional initial id to start as the first active item
@@ -43,7 +54,9 @@ export const useActiveListItem = ({
     const [active, setActive] = useState<string | null>(initId ?? null);
     const listEventsRef = useRef(new Map<TTimelineEventElement, TTimelineEvent>());
     const visibleListEventsRef = useRef(new Set<TTimelineEvent>());
+
     const observerRef = useRef<IntersectionObserver | null>(null);
+    const [ready, setReady] = useState(false);
 
     useEffect(() => {
         observerRef.current = buildEventObserver(
@@ -53,10 +66,13 @@ export const useActiveListItem = ({
             options
         );
 
+        setReady(true);
+
         return () => {
+            setReady(false);
             observerRef.current?.disconnect();
         }
-    }, [listEventsRef, visibleListEventsRef, setActive, options]);
+    }, [options]);
 
 
     const observe = (node: TTimelineEventElement | null, event: TTimelineEvent) => {
@@ -67,6 +83,8 @@ export const useActiveListItem = ({
     }
 
     return {
+        ready,
+
         active,
 
         setActive: (id: string) => {
@@ -80,7 +98,7 @@ export const useActiveListItem = ({
             });
         },
 
-        observe
+        observe,
     }
 }
 
